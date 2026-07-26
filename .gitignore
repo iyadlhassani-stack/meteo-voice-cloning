@@ -1,0 +1,7 @@
+venv/
+OpenVoice/
+outputs_v2/
+__pycache__/
+*.pyc
+.DS_Store
+.python-version
