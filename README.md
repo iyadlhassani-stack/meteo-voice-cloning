@@ -2,7 +2,7 @@
 
 Preuve de concept de clonage vocal réalisée dans le cadre d'une mission avec **METEO CONSULT (La Chaîne Météo)** : cloner la voix d'un présentateur pour générer des bulletins météo sans nécessiter systématiquement sa présence en studio (gain de temps et de coût pour les mises à jour fréquentes).
 
-⚠️ Ce repo est un PoC technique. La voix utilisée ici en démonstration est un narrateur du domaine public (Jules Verne, lu par Zeckou, LibriVox), pas la voix réelle du présentateur — pour des raisons évidentes de droits et de confidentialité tant que l'accord définitif avec le présentateur n'est pas formalisé.
+⚠️ Ce repo est un PoC technique. La voix utilisée ici en démonstration est un narrateur du domaine public (Jules Verne, lu par Zeckou, LibriVox), pas la voix réelle du présentateur pour des raisons évidentes de droits et de confidentialité tant que l'accord définitif avec le présentateur n'est pas formalisé.
 
 ## Résultats
 
@@ -12,7 +12,7 @@ Deux échantillons dans `samples/` :
 
 Mesures obtenues sur ce test :
 - Similarité de timbre (cosinus) : 0.83
-- WER (Word Error Rate) : 9.5% en brut, mais ~0% une fois la ponctuation et les nombres normalisés (Whisper transcrit "vingt" en "20" — pas une vraie erreur de reconnaissance)
+- - **WER (Word Error Rate)** : 4.76% après normalisation (minuscules, ponctuation retirée). Le seul écart restant est "vingt" transcrit "20" par Whisper un désaccord de format de nombre, pas une erreur de reconnaissance du contenu.
 
 ## Architecture du pipeline
 
