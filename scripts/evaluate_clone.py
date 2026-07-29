@@ -28,5 +28,19 @@ transcription = " ".join([seg.text for seg in segments]).strip()
 print(f"Texte attendu     : {reference_text}")
 print(f"Texte transcrit   : {transcription}")
 
-wer = jiwer.wer(reference_text.lower(), transcription.lower())
+transform = jiwer.Compose([
+    jiwer.ToLowerCase(),
+    jiwer.RemovePunctuation(),
+    jiwer.RemoveMultipleSpaces(),
+    jiwer.Strip(),
+])
+
+ref_normalized = transform(reference_text)
+hyp_normalized = transform(transcription)
+
+print(f"Texte attendu (normalisé)  : {ref_normalized}")
+print(f"Texte transcrit (normalisé): {hyp_normalized}")
+
+wer = jiwer.wer(ref_normalized, hyp_normalized)
+
 print(f"WER : {wer*100:.2f}%")
